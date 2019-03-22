@@ -1,0 +1,10 @@
+IEX- v(siffran) kan anv. för ref input
+
+def func(t = { a, b }) do
+  IO.puts "a = #{a}, b = #{b}, is_tuple{t}"
+end
+
+This isnÕt special syntax. When the argument is matched to the parameter, itÕs as if weÕd written
+t = { a, b } = { 1, 2 }
+
+Two pattern matches take place, and three variables are bound.

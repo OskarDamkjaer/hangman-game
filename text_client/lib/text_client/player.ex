@@ -13,7 +13,7 @@ defmodule TextClient.Player do
     continue(game)
   end
 
-  def play(game = %State{tally: %{game_state: :already_guessed}}) do
+  def play(game = %State{tally: %{game_state: :already_used}}) do
     continue_with_message(game, "already guessed")
   end
 
@@ -25,8 +25,7 @@ defmodule TextClient.Player do
     continue_with_message(game, "bad guess, u tried!")
   end
 
-  # TODO this prob catches more already guesses deos not seem to work
-  def play(game = %State{}), do: continue(game)
+  def play(game = %State{}), do: continue(IO.inspect(game))
 
   def continue_with_message(game = %State{}, message) do
     IO.puts(message)

@@ -24,7 +24,8 @@ defmodule Hangman.Game do
     %{
       game_state: game.game_state,
       turns_left: game.turns_left,
-      letters: game.letters |> reveal_guessed(game.used)
+      letters: game.letters |> reveal_guessed(game.used),
+      used: game.used |> MapSet.to_list()
     }
   end
 
@@ -34,6 +35,14 @@ defmodule Hangman.Game do
 
   def make_move(game, guess) do
     accept_move(game, guess, MapSet.member?(game.used, guess))
+  end
+
+  def reveal_word(game = %{game_state: state}) when state in [:won, :lost] do
+    game.letters |> Enum.join()
+  end
+
+  def reveal_word(_game) do
+    "HIDDEN"
   end
 
   #

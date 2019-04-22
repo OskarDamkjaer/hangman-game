@@ -1,12 +1,12 @@
 defmodule TextClient.Player do
   alias TextClient.{State, Summary, Prompter, Mover}
 
-  def play(%State{tally: %{game_state: :won}}) do
-    "you won!" |> exit_with_message
+  def play(game = %State{tally: %{game_state: :won}}) do
+    "you won! the word was #{game.word}" |> exit_with_message
   end
 
-  def play(%State{tally: %{game_state: :lost}}) do
-    "you lost" |> exit_with_message
+  def play(game = %State{tally: %{game_state: :lost}}) do
+    "you lost! the word was #{game.word}" |> exit_with_message
   end
 
   def play(game = %State{tally: %{game_state: :init}}) do

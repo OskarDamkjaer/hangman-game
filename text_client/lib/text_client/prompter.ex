@@ -1,5 +1,7 @@
 defmodule TextClient.Prompter do
-  def accept_move(game) do
+  alias TextClient.State
+
+  def accept_move(game = %State{}) do
     game
     |> check_input(IO.gets("Your guess: "))
   end

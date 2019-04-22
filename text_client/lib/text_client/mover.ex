@@ -7,7 +7,8 @@ defmodule TextClient.Mover do
     %State{
       game_service: new_game,
       tally: Hangman.tally(new_game),
-      guess: ""
+      guess: "",
+      word: Hangman.reveal_word(new_game)
     }
   end
 end

@@ -1,0 +1,8 @@
+<h1> Welcome to my hangman game!</h1>
+<!--känns som routes kommer bli litta jobbiga -->
+<%= new_game_button(@conn) %>
+
+
+<div>
+
+</div>

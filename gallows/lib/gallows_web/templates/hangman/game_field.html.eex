@@ -1,5 +1,5 @@
 
-<%= Gallows.Views.Helpers.GameStateHelper.game_state(@tally.game_state) %>
+<%= GameStateHelper.game_state(@tally.game_state) %>
 <div class="row"> 
   <div class="col-md-4" >
     <%= render "_gallows.html", left: @tally.turns_left %>

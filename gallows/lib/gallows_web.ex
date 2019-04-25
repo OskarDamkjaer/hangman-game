@@ -37,10 +37,12 @@ defmodule GallowsWeb do
       import Phoenix.Controller, only: [get_flash: 1, get_flash: 2, view_module: 1]
 
       # Use all HTML functionality (forms, tags, etc)
-      use Phoenix.HTML
+      use(Phoenix.HTML)
 
       import GallowsWeb.ErrorHelpers
       import GallowsWeb.Gettext
+      import GallowsWeb.Views.Helpers.GameStateHelper
+      alias GallowsWeb.Views.Helpers.GameStateHelper
       alias GallowsWeb.Router.Helpers, as: Routes
     end
   end

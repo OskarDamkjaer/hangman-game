@@ -13,7 +13,8 @@ defmodule GallowsWeb.HangmanController do
       |> get_session(:game)
       |> Hangman.make_move(guess)
 
-    put_in(conn.params["make_move"]["guess"], "")
+    conn.params["make_move"]["guess"]
+    |> put_in("")
     |> render("game_field.html", tally: tally)
   end
 

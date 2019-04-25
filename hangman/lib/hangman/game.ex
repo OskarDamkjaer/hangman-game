@@ -54,13 +54,15 @@ defmodule Hangman.Game do
   end
 
   defp accept_move(game, guess, _alreay_guessed) do
-    Map.put(game, :used, MapSet.put(game.used, guess))
+    game
+    |> Map.put(:used, MapSet.put(game.used, guess))
     |> score_guess(Enum.member?(game.letters, guess))
   end
 
   defp score_guess(game, _good_guess = true) do
     new_state =
-      MapSet.new(game.letters)
+      game.letters
+      |> MapSet.new()
       |> MapSet.subset?(game.used)
       |> maybe_won()
 
